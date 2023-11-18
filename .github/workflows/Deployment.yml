@@ -1,8 +1,5 @@
-name: node.js test
-on:
-  push:
-      branches: ["main"]
-  workflow_dispatch:
+name: React Test
+on: workflow_dispatch
 jobs:
   Testing:
     runs-on: ubuntu-latest
@@ -20,6 +17,7 @@ jobs:
       - name: run tests
         run: npm test
   Deploy:
+    needs: Testing
     runs-on: ubuntu-latest
     steps:
       - name: code-checkout
