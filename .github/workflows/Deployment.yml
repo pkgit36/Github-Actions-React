@@ -23,11 +23,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: code-checkout
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Install packages
-        uses: action/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Install dependencies
