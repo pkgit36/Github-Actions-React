@@ -36,4 +36,3 @@ jobs:
         run: npm run build
       - name: deploy the app
         run: echo "App has been deployed"
-        
