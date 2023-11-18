@@ -1,0 +1,38 @@
+name: node.js test
+on:
+  push:
+      branches: ["main"]
+  workflow_dispatch:
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code-checkout
+        uses: action/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install packages
+        uses: action/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm test
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code-checkout
+        uses: action/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install packages
+        uses: action/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Build the code
+        run: npm run build
+      - name: deploy the app
+        run: echo "App has been deployed"
