@@ -1,0 +1,9 @@
+name: context variable testing
+on: workflow_dispatch
+jobs:
+    runner-varible:
+        runs-on: ubuntu-latest
+        steps:
+            - name: list the runner details
+              run: echo "${{toJson(runner)}}"
+
